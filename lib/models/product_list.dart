@@ -5,27 +5,15 @@ import 'product.dart';
 
 class ProductList with ChangeNotifier {
   List<Product> _items = dummyProducts;
-  bool _showFavorites = false;
-
   
 
-  List<Product> get items {
-    if(_showFavorites) {
-      return _items.where((product) => product.isFavorite).toList();
-    }
-    return [..._items];
-  }
 
-  void showFavoritesOnly() {
-    _showFavorites = true;
-    notifyListeners();
-    
+  List<Product> get items =>[..._items]; 
+  List<Product> get favoriteItens {
+    return _items.where((prodItem) => prodItem.isFavorite).toList();
   }
-
-  void showAll() {
-    _showFavorites = false;
-    notifyListeners();
-  }
+  
+  
 
 
   void addProduct(Product product) {
@@ -33,3 +21,6 @@ class ProductList with ChangeNotifier {
     notifyListeners();
   }
 }
+
+
+

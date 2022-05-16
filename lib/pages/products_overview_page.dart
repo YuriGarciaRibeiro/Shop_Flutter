@@ -6,48 +6,47 @@ import 'package:shop/components/product_grid_view.dart';
 import '../models/product.dart';
 import '../models/product_list.dart';
 
-enum FilterOptions{
-    Favorites,
-    All
-  }
+enum FilterOptions { Favorites, All }
 
+class ProductsOverviewPage extends StatefulWidget {
+  @override
+  State<ProductsOverviewPage> createState() => _ProductsOverviewPageState();
+}
 
-
-class ProductsOverviewPage extends StatelessWidget {
-  
-  
-
+class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
+  bool _showFavoritesOnly = false;
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ProductList>(context);
     return Scaffold(
-        appBar: AppBar(
-          title: Text('MyShop'),
-          actions: [
-            PopupMenuButton(
-              icon: Icon(Icons.more_vert),
-              itemBuilder: (_) => [
-                PopupMenuItem(
-                  child: Text('Only Favorite'),
-                  value: FilterOptions.Favorites,
-                ),
-                PopupMenuItem(
-                  child: Text('Show All'),
-                  value: FilterOptions.All,
-                )
-                
-              ],
-              onSelected: (FilterOptions selectedValue) {
-                if(selectedValue == FilterOptions.Favorites) {
-                  provider.showFavoritesOnly();
+      appBar: AppBar(
+        title: Text('MyShop'),
+        actions: [
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                child: Text('Only Favorite'),
+                value: FilterOptions.Favorites,
+              ),
+              PopupMenuItem(
+                child: Text('Show All'),
+                value: FilterOptions.All,
+              )
+            ],
+            onSelected: (FilterOptions selectedValue) {
+              setState(() {
+                if (selectedValue == FilterOptions.Favorites) {
+                  _showFavoritesOnly = true;
                 } else {
-                  provider.showAll();
+                  _showFavoritesOnly = false;
                 }
-              },
-            )
-          ],
-        ),
-        body: ProductGridView());
+              });
+            },
+          )
+        ],
+      ),
+      body: ProductGridView(_showFavoritesOnly),
+    );
   }
 }
