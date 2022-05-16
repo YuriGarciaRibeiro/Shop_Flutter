@@ -35,7 +35,6 @@ class ProductsOverviewPage extends StatelessWidget {
                 PopupMenuItem(
                   child: Text('Show All'),
                   value: FilterOptions.All,
-                  
                 )
                 
               ],
