@@ -21,7 +21,7 @@ class _CounterPageState extends State<CounterPage> {
           IconButton(
             onPressed: () {
               setState(() {
-                CounterProvider.of(context)?.state?.inc();
+                CounterProvider.of(context)?.state.inc();
               });
             },
             icon: Icon(Icons.add),
