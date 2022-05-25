@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/components/app_drawer.dart';
 
 class OrdersPage extends StatelessWidget {
   const OrdersPage({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class OrdersPage extends StatelessWidget {
       body: Center(
         child: Text('Orders'),
       ),
+      drawer: AppDrawer(),
     );
   }
 }
