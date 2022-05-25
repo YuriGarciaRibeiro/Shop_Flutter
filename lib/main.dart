@@ -7,7 +7,7 @@ import 'package:shop/utils/app_routs.dart';
 
 import 'models/cart.dart';
 import 'pages/cart_page.dart';
-import 'pages/orders_pages.dart';
+import 'pages/orders_page.dart';
 import 'pages/product_detail_page.dart';
 
 void main() {
