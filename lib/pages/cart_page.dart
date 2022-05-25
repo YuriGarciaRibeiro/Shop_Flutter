@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/components/cart_item_widget.dart';
+import 'package:shop/models/order_list.dart';
 
 import '../models/cart.dart';
 
@@ -49,7 +50,13 @@ class CartPage extends StatelessWidget {
                   ),
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<OrderList>(
+                        context,
+                        listen: false,
+                      ).addOrder(cart);
+                      cart.clear();
+                    },
                     child: Text('Checkout'),
                     style: TextButton.styleFrom(
                       textStyle: TextStyle(
@@ -64,7 +71,8 @@ class CartPage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemBuilder: (ctx, index) => CartItemWidget(cartItem: cartItems[index]),
+              itemBuilder: (ctx, index) =>
+                  CartItemWidget(cartItem: cartItems[index]),
               itemCount: cartItems.length,
             ),
           )

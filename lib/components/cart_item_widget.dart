@@ -35,7 +35,7 @@ class CartItemWidget extends StatelessWidget {
         Provider.of<Cart>(
           context,
           listen: false,
-        ).removeItem(cartItem.id);
+        ).removeItem(cartItem.productId);
       },
       child: Card(
         elevation: 3,
