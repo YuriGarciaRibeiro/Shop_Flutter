@@ -11,4 +11,4 @@
 
 <h2 align="center">Tela de pedidos</h2>
 <p align="center"><a href="" target="_blank" align='left'><img src="https://drive.google.com/uc?export=view&id=1H4VEhigUD8WmJoSGUuQRNxzYIWOSSfoL" width="300"></a></p>
-<p align="center"><a href="" target="_blank" align='left'><img src="https://drive.google.com/uc?export=view&id=1ZRI6GuIKOTEmhDDUauDIYJkwk_pqyDGu width="300"></a></p>
+<p align="center"><a href="" target="_blank" align='left'><img src="https://drive.google.com/uc?export=view&id=1ZRI6GuIKOTEmhDDUauDIYJkwk_pqyDGu" width="300"></a></p>
