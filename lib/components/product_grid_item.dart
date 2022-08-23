@@ -46,6 +46,8 @@ class ProductGridItem extends StatelessWidget {
             icon: Icon(Icons.shopping_cart),
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
+              cart.addItem(product);
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Added item to cart'),
@@ -57,7 +59,6 @@ class ProductGridItem extends StatelessWidget {
                       }),
                 ),
               );
-              cart.addItem(product);
             },
           ),
         ),
