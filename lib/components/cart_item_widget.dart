@@ -31,12 +31,16 @@ class CartItemWidget extends StatelessWidget {
           vertical: 4,
         ),
       ),
+      confirmDismiss: (_) async {
+        Future.value(true);
+      },
       onDismissed: (_) {
         Provider.of<Cart>(
           context,
           listen: false,
         ).removeItem(cartItem.productId);
       },
+
       child: Card(
         elevation: 3,
         margin: const EdgeInsets.symmetric(
