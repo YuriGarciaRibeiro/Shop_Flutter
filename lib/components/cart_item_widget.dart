@@ -31,8 +31,28 @@ class CartItemWidget extends StatelessWidget {
           vertical: 4,
         ),
       ),
-      confirmDismiss: (_) async {
-        Future.value(true);
+      confirmDismiss: (_) {
+        return showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text('Tem Certeza?'),
+            content: Text('Quer remover o item do carrinho?'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop(false);
+                },
+                child: Text('Não'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop(true);
+                },
+                child: Text('Sim'),
+              ),
+            ],
+          ),
+        );
       },
       onDismissed: (_) {
         Provider.of<Cart>(
@@ -40,7 +60,6 @@ class CartItemWidget extends StatelessWidget {
           listen: false,
         ).removeItem(cartItem.productId);
       },
-
       child: Card(
         elevation: 3,
         margin: const EdgeInsets.symmetric(
@@ -63,7 +82,6 @@ class CartItemWidget extends StatelessWidget {
             title: Text(cartItem.name),
             subtitle: Text('\$${cartItem.price * cartItem.quantity}'),
             trailing: Text('${cartItem.quantity} x'),
-            
           ),
         ),
       ),
