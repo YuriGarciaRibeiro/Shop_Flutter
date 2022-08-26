@@ -31,7 +31,7 @@ class CartItemWidget extends StatelessWidget {
           vertical: 4,
         ),
       ),
-      confirmDismiss: (_) {
+      confirmDismiss: (_) { 
         return showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
